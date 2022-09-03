@@ -1,0 +1,202 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3001171106993852247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3001171106993852244}
+  m_Layer: 0
+  m_Name: Wall Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3001171106993852244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001171106993852247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3001171107066792960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3001171107066792963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3001171107066792960}
+  - component: {fileID: 3001171107066792961}
+  m_Layer: 0
+  m_Name: Castle Room Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3001171107066792960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001171107066792963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3001171106993852244}
+  - {fileID: 3001171107614217850}
+  - {fileID: 3001171107731507743}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3001171107066792961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001171107066792963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e126a59955b4749448c73ae2a47ea30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _width: 5
+  _height: 1
+  _depth: 5
+  _originTransform: {fileID: 3001171107066792960}
+  _tileSize: 8
+  _numberOfDoors: 2
+  _numberOfWindows: 2
+  _safeArea: 1
+  _useMaxWallDecoration: 1
+  _numberOfWallDecorations: 1
+  _useMaxPropDecoration: 1
+  _numberOfPropDecorations: 1
+  _wallDecorationOffSet: 0
+  _propDecorationOffSet: 0
+  _roomSeed: 0
+  _decorationSeed: 0
+  _floors:
+  - {fileID: 125426, guid: 64cb684f38ab4e547a77225cd823cf62, type: 3}
+  _walls:
+  - {fileID: 124164, guid: e38067ccaff52424db35c2958d80cb11, type: 3}
+  _doors:
+  - {fileID: 118334, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
+  _windows:
+  - {fileID: 3924939432393312435, guid: a6acb3380dd47eb49a9902c75d225953, type: 3}
+  _wallDecorations:
+  - {fileID: 11400000, guid: 91e93b5c2e076c147ab8a1b3c3da10c4, type: 2}
+  - {fileID: 11400000, guid: f61c0dccb0d7c144699766c7c0cb2e7c, type: 2}
+  - {fileID: 11400000, guid: dd3cbcdacd754684c9f501f8d04e4d80, type: 2}
+  - {fileID: 11400000, guid: d4d665238863ed4448ad736c29abf44c, type: 2}
+  - {fileID: 11400000, guid: 5133d27fa1d717a47ac34dd82da77529, type: 2}
+  - {fileID: 11400000, guid: bd8195da6542bee40974ee10226d76d1, type: 2}
+  - {fileID: 11400000, guid: 47dc050977ac1fe45bcd506d424c884a, type: 2}
+  - {fileID: 11400000, guid: 6894b47fbacfc1a4b8b364841cd079d0, type: 2}
+  - {fileID: 11400000, guid: d6181ab0cedf7e343b77abd28a71ee04, type: 2}
+  - {fileID: 11400000, guid: d8c87276cf7652d4bac88911a79eabaf, type: 2}
+  - {fileID: 11400000, guid: e621ce01840d4284db9239efab3c7d52, type: 2}
+  _propDecorations:
+  - {fileID: 11400000, guid: 8f3d621ea1e599c4a8ad5c641cf3c0a6, type: 2}
+  - {fileID: 11400000, guid: d458c0fc422e43b408964e3d40728bb6, type: 2}
+  - {fileID: 11400000, guid: 42772ccfb9101cb478e9c6cba01bd626, type: 2}
+  - {fileID: 11400000, guid: 02be4c25c77dc55408767e2b2dd0e6eb, type: 2}
+  - {fileID: 11400000, guid: 0af09c919f7ea8a4a8b1c1cae9918093, type: 2}
+  - {fileID: 11400000, guid: c4bc4b8a58a5a9347be69f995eda0356, type: 2}
+  - {fileID: 11400000, guid: 96ce1bbbaead0f542a9c4b143683a4be, type: 2}
+  - {fileID: 11400000, guid: 7de8b0ab6b252a24581d112be8481388, type: 2}
+  - {fileID: 11400000, guid: 8f4eb06e2213b3a45a64da18f2b2456b, type: 2}
+  - {fileID: 11400000, guid: 33503876f18163440ae44fef084d6260, type: 2}
+  - {fileID: 11400000, guid: ff140a03f163df848b49ad8caec97e46, type: 2}
+  - {fileID: 11400000, guid: 01ba53bdf1fe1254eb96c651cdc7b809, type: 2}
+  - {fileID: 11400000, guid: 4012d5fb4217d8441be747e9a17a79e8, type: 2}
+  - {fileID: 11400000, guid: 951a90523b643fc4d97d6ca1d3a54195, type: 2}
+  - {fileID: 11400000, guid: 1cef8b32bca8dbb42bf7d7d4d6d3606c, type: 2}
+  - {fileID: 11400000, guid: 76c9f05e93925d34489ce7f288719ae3, type: 2}
+  - {fileID: 11400000, guid: b7fd44c0d85a45545a75ee8f2bc3abb7, type: 2}
+  - {fileID: 11400000, guid: 6fa7b5b780366d54cb73c427b600d66c, type: 2}
+  - {fileID: 11400000, guid: 0787bffe9a999c0419fee1e545f43779, type: 2}
+  - {fileID: 11400000, guid: 42ea53cdbffd5134983867c1cab0cf8c, type: 2}
+  _floorParent: {fileID: 3001171107614217850}
+  _wallParent: {fileID: 3001171106993852244}
+  _decorationParent: {fileID: 3001171107731507743}
+--- !u!1 &3001171107614217853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3001171107614217850}
+  m_Layer: 0
+  m_Name: Floor Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3001171107614217850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001171107614217853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3001171107066792960}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3001171107731507742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3001171107731507743}
+  m_Layer: 0
+  m_Name: Prop Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3001171107731507743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001171107731507742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3001171107066792960}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
