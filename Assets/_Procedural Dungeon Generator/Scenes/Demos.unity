@@ -413,7 +413,7 @@ MonoBehaviour:
   _numberOfWallDecorations: 0
   _useMaxPropDecoration: 1
   _numberOfPropDecorations: 0
-  _dungeonSeed: 78522
+  _dungeonSeed: 0
   _roomPrefabs:
   - {fileID: 3872977718384676881, guid: 1f17fc8d9344ba44189476f569f115bc, type: 3}
   _floorTile: {fileID: 8090701859747277853, guid: c4432c40f9eed03438468c4c20c1aee7, type: 3}
@@ -483,7 +483,7 @@ MonoBehaviour:
   _roomPrefabs:
   - {fileID: 5580140651828877522, guid: 51e95ffcc8d6a204790596fa8856d4ea, type: 3}
   _floorTile: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
-  _wallTile: {fileID: 0}
+  _wallTile: {fileID: 465744, guid: f3a954679d4d04b49953424fc6bf526c, type: 3}
 --- !u!4 &2078503694
 Transform:
   m_ObjectHideFlags: 0
