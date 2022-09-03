@@ -34,9 +34,11 @@ public class DungeonGenerator : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<RoomGenerator> _roomPrefabs = new List<RoomGenerator>();
     [SerializeField] private Transform _floorTile;
+    [SerializeField] private Transform _wallTile;
 
     private Grid<GridCell> _dungeonGrid;
     private List<RoomGenerator> _spawnedRooms = new List<RoomGenerator>();
+    private List<Transform> _spawnedCorridorTiles = new List<Transform>();
 
     #endregion
 
@@ -266,15 +268,42 @@ public class DungeonGenerator : MonoBehaviour
             if (endRoom.GetOpenDoors().Count <= 0)
                 openRooms.Remove(endRoom);
         }
+        
+        SpawnWalls();
     }
 
     private void SpawnPath(List<PathCell> path)
     {
         if(path == null) return;
-        
+
         foreach (var pathCell in path)
-            Instantiate(_floorTile, _dungeonGrid.GetWorldPosition(pathCell.GridPosition.x, pathCell.GridPosition.y, pathCell.GridPosition.z),
+        {
+            var floor =  Instantiate(_floorTile, _dungeonGrid.GetWorldPosition(pathCell.GridPosition.x, pathCell.GridPosition.y, pathCell.GridPosition.z),
                 Quaternion.identity);
+            
+            _spawnedCorridorTiles.Add(floor);
+        }
+    }
+
+    private void SpawnWalls()
+    {
+        if(_spawnedCorridorTiles.Count <= 0) return;
+        
+        foreach (var tile in _spawnedCorridorTiles)
+            _dungeonGrid.GetValueWorld(tile.position).IsAvailable = false;
+
+        foreach (var tile in _spawnedCorridorTiles)
+        {
+            var tileCell = _dungeonGrid.GetValueWorld(tile.position);
+            var tilePosition = _dungeonGrid.GetWorldPosition(tileCell.GridPosition.x, tileCell.GridPosition.y,
+                tileCell.GridPosition.z);
+
+            foreach (var direction in GetWallDirections(tileCell))
+            {
+                var wallSpawned = Instantiate(_wallTile, tilePosition + (direction - tilePosition).normalized * (_tileSize * 0.5f), Quaternion.identity);
+                wallSpawned.transform.LookAt(tilePosition);
+            }
+        }
     }
     
     private bool IsRoomValid(int x, int y, int z)
@@ -283,6 +312,25 @@ public class DungeonGenerator : MonoBehaviour
         if (!_dungeonGrid.GetValue(x, y, z).IsAvailable) return false;
 
         return true;
+    }
+    
+    private List<Vector3> GetWallDirections(GridCell cell)
+    {
+        var directions = new List<Vector3>();
+        
+        if (cell.GridPosition.x - 1 >= 0 && _dungeonGrid.GetValue(cell.GridPosition.x - 1, cell.GridPosition.y, cell.GridPosition.z).IsAvailable)
+            directions.Add(_dungeonGrid.GetWorldPosition(cell.GridPosition.x - 1, cell.GridPosition.y, cell.GridPosition.z));
+        
+        if (cell.GridPosition.x + 1 < _dungeonGrid.width && _dungeonGrid.GetValue(cell.GridPosition.x + 1, cell.GridPosition.y, cell.GridPosition.z).IsAvailable)
+            directions.Add(_dungeonGrid.GetWorldPosition(cell.GridPosition.x + 1, cell.GridPosition.y, cell.GridPosition.z));
+        
+        if (cell.GridPosition.z - 1 >= 0 && _dungeonGrid.GetValue(cell.GridPosition.x, cell.GridPosition.y, cell.GridPosition.z - 1).IsAvailable)
+            directions.Add(_dungeonGrid.GetWorldPosition(cell.GridPosition.x, cell.GridPosition.y, cell.GridPosition.z - 1));
+        
+        if (cell.GridPosition.z + 1 < _dungeonGrid.depth && _dungeonGrid.GetValue(cell.GridPosition.x, cell.GridPosition.y, cell.GridPosition.z + 1).IsAvailable)
+            directions.Add(_dungeonGrid.GetWorldPosition(cell.GridPosition.x, cell.GridPosition.y, cell.GridPosition.z + 1));
+
+        return directions;
     }
     
     #endregion

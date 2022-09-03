@@ -297,6 +297,7 @@ public class RoomGenerator : MonoBehaviour
         
         _spawnedWalls.Add(wallSpawned);
     }
+    
     public List<Door> GetOpenDoors()
     {
         var doors = new List<Door>();
